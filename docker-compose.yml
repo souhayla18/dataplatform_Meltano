@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  meltano:
+    build: .
+    volumes:
+      - .:/app
+    command: meltano elt tap-api target-duckdb
+    environment:
+      - MELTANO_ENV=local
+      - DATABASE_URL=duckdb:///app/data/your_database.duckdb  # Path to DuckDB database
+
+  dbt:
+    build: .
+    volumes:
+      - ./dbt:/app/dbt
+    command: dbt run
+    environment:
+      - DBT_PROFILE_DIR=/app/dbt
