@@ -52,30 +52,28 @@ Before starting, ensure you have the following tools installed on your local mac
 
 ```bash
 git clone https://github.com/yourusername/data-mesh-project.git
-cd data-mesh-project '''
+cd data-mesh-project ```
 
-Set Up Docker Environment
-```bash
+### Set Up Docker Environment
+
 Build Docker Containers: Inside your project folder, use Docker Compose to build the containers for Meltano and DBT.
-'''
-docker-compose up --build
+```bash
+docker-compose up --build ```
 Start Containers: Once the build completes, start the containers:
 
-bash
-Copy code
-docker-compose up
+```bash
+docker-compose up ```
 This will run the Meltano and DBT containers, allowing them to communicate with each other and process the data.
 Set Up Task Automation
 Cron Jobs (Optional): If you wish to automate ETL tasks (e.g., extracting data with Meltano, transforming data with DBT), you can set up cron jobs or use Python's scheduling library. Here’s an example of a cron job setup:
 
-bash
-Copy code
+```bash
 # Edit crontab file
 crontab -e
 
 # Add a cron job to run Meltano extraction every day at midnight
-0 0 * * * /usr/local/bin/meltano elt <your_extraction_pipeline>
-🗂️ Folder Structure
+0 0 * * * /usr/local/bin/meltano elt <your_extraction_pipeline> ```
+###🗂️ Folder Structure
 Here’s an overview of the project structure:
 
 graphql
@@ -95,7 +93,7 @@ my-data-platform-project/
     ├── raw/                   # Bronze Layer - Raw data
     ├── processed/             # Silver Layer - Processed/cleaned data
     └── analytics/             # Gold Layer - Aggregated data for analysis
-🔧 Step-by-Step Guide to Deploy
+###🔧 Step-by-Step Guide to Deploy
 1. Set up Docker for Meltano and DBT
 Follow the Docker setup instructions above to build the containers and manage their orchestration with Docker Compose.
 
@@ -114,7 +112,7 @@ Test the entire pipeline from data extraction to transformation and aggregation.
 6. Deploy and Monitor
 Once the system is set up, monitor the performance and adjust the architecture for scaling as needed.
 
-🛠️ Next Steps
+###🛠️ Next Steps
 Integrate more data sources into Meltano pipelines.
 Expand DBT models to include more complex transformations.
 Implement monitoring and alerting for pipeline failures or performance issues.
